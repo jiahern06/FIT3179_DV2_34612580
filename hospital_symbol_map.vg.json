@@ -1,0 +1,46 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Hospital Beds by State, Malaysia (2022): Size = Total Beds, Colour = Beds per 1,000 Residents",
+  "width": 800,
+  "height": 450,
+  "projection": {"type": "mercator", "center": [109.5, 4.1], "scale": 2000, "translate": [400, 225]},
+  "layer": [
+    {
+      "data": {
+        "url": "malaysia_districts.topojson.json",
+        "format": {"type": "topojson", "feature": "my"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white", "strokeWidth": 0.5}
+    },
+    {
+      "data": {"url": "hospital_beds_map.csv"},
+      "transform": [
+        {"calculate": "datum.bed_count / datum.population * 1000", "as": "Beds_Per_1000"}
+      ],
+      "mark": {"type": "circle", "opacity": 0.8, "stroke": "black", "strokeWidth": 0.5},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "bed_count",
+          "type": "quantitative",
+          "scale": {"domain": [0, 8000], "range": [20, 2500]},
+          "title": "Total beds"
+        },
+        "color": {
+          "field": "Beds_Per_1000",
+          "type": "quantitative",
+          "scale": {"scheme": "reds", "domain": [1, 3], "clamp": true},
+          "title": "Beds per 1,000"
+        },
+        "order": {"field": "bed_count", "type": "quantitative", "sort": "descending"},
+        "tooltip": [
+          {"field": "State", "type": "nominal"},
+          {"field": "bed_count", "type": "quantitative", "format": ",", "title": "Total beds"},
+          {"field": "population", "type": "quantitative", "format": ",", "title": "Population"},
+          {"field": "Beds_Per_1000", "type": "quantitative", "format": ".2f", "title": "Beds per 1,000"}
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+/* ==========================================================================
+   1. FONTS & TYPOGRAPHY SETTINGS (HD Rubric: 2%)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Color Palette (Figure-Ground & Visual Hierarchy) */
+    --bg-color: #f8fafc;
+    /* Soft off-white canvas */
+    --card-bg: #ffffff;
+    /* Clean white figure cards */
+    --text-main: #1e293b;
+    /* High-contrast dark slate body */
+    --text-muted: #64748b;
+    /* Subdued slate for subtitles/meta */
+    --primary-accent: #0284c7;
+    /* Deep ocean blue accent */
+    --border-color: #e2e8f0;
+    /* Subtle divider lines */
+
+    /* Typography Variables */
+    --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --line-height-body: 1.6;
+    /* Optimal line height for longform readability */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: var(--line-height-body);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. PAGE LAYOUT & CONTAINER STRUCTURE (HD Rubric: 3%)
+   ========================================================================== */
+.page-container {
+    max-width: 1200px;
+    /* Aligns all elements to consistent sight lines */
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+header {
+    margin-bottom: 40px;
+    text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Section Grouping & White Space */
+.section-block {
+    margin-bottom: 48px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.narrative-text {
+    font-size: 1rem;
+    color: var(--text-main);
+    max-width: 75ch;
+    /* Limits line length to ~75 characters for optimal reading */
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   3. VISUALIZATION CARD CONTAINERS (Figure-Ground Isolation)
+   ========================================================================== */
+.vis-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease;
+}
+
+.vis-card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+}
+
+.vis-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    /* Prevents layout breakages on small screens */
+}
+
+/* Fix for Vega-Lite actions button positioning */
+.vega-embed {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   4. METADATA & FOOTER STYLING
+   ========================================================================== */
+footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.metadata-item strong {
+    color: var(--text-main);
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Household Deficits: Internet vs. Basic Amenities (1 dot = 500 households)",
+  "width": 800,
+  "height": 450,
+  "projection": {
+    "type": "mercator", 
+    "center": [109.5, 4.1], 
+    "scale": 2000, 
+    "translate": [400, 225]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "malaysia_districts_topojson.json",
+        "format": {"type": "topojson", "feature": "my"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white", "strokeWidth": 0.5}
+    },
+    {
+      "data": {"url": "dual_deficit_dots.csv"},
+      "mark": {"type": "circle", "size": 8, "opacity": 0.7, "strokeWidth": 0},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "color": {
+          "field": "deficit_type",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Lacks Internet", "Lacks Piped Water"],
+            "range": ["#d95f02", "#7570b3"]
+          },
+          "title": "Deficit Category"
+        },
+        "tooltip": [
+          {"field": "deficit_type", "type": "nominal", "title": "Issue"}
+        ]
+      }
+    }
+  ]
+}

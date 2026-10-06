@@ -1,0 +1,93 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Malaysia Crime Rates per 10,000 Residents by State (2023)",
+  "width": 800,
+  "height": 450,
+  "projection": {
+    "type": "mercator",
+    "center": [
+      109.5,
+      4.1
+    ],
+    "scale": 2000,
+    "translate": [
+      400,
+      225
+    ]
+  },
+  "data": {
+    "url": "malaysia_districts.topojson.json",
+    "format": {
+      "type": "topojson",
+      "feature": "my"
+    }
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "district_crime_data.csv"
+        },
+        "key": "District",
+        "fields": [
+          "Crime_Count",
+          "Population"
+        ]
+      }
+    },
+    {
+      "calculate": "(datum.Crime_Count / datum.Population) * 10000",
+      "as": "Crime_Per_10k"
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "color": {
+      "field": "Crime_Per_10k",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [
+          10,
+          12,
+          14,
+          16,
+          18,
+          20
+        ],
+        "scheme": "oranges"
+      },
+      "title": "Crimes per 10k"
+    },
+    "tooltip": [
+      {
+        "field": "properties.name",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "Crime_Count",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Total Crimes"
+      },
+      {
+        "field": "Population",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Population"
+      },
+      {
+        "field": "Crime_Per_10k",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "Crimes per 10k"
+      }
+    ]
+  }
+}
