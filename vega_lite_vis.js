@@ -19,3 +19,11 @@ var vg_3 = "bivariate_state_map.vg.json";
 vegaEmbed("#bivariate_map", vg_3).then(function(result) {
   // Map 3 rendered successfully
 }).catch(console.error);
+
+// Variable storing the location of Chart 4 JSON file
+var vg_4 = "state_crime_heatmap.vg.json";
+
+// Embed the visualization into the HTML div container with id "crime_heatmap"
+vegaEmbed("#crime_heatmap", vg_4).then(function(result) {
+  // Chart 4 rendered successfully
+}).catch(console.error);

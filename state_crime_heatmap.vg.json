@@ -1,0 +1,48 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "State Safety Trajectories: Crime Rate per 10,000 Residents (2018-2023)",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "state_crime_trends.csv"
+  },
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "field": "State",
+      "type": "nominal",
+      "title": "State",
+      "sort": "-color" 
+    },
+    "color": {
+      "field": "Crime_Per_10k",
+      "type": "quantitative",
+      "title": "Crimes per 10k",
+      "scale": {
+        "scheme": "oranges"
+      }
+    },
+    "tooltip": [
+      {"field": "State", "type": "nominal", "title": "State"},
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Total_Crimes", "type": "quantitative", "format": ",", "title": "Total Crimes"},
+      {"field": "Crime_Per_10k", "type": "quantitative", "format": ".2f", "title": "Rate per 10k"}
+    ]
+  },
+  "config": {
+    "axis": {
+      "grid": false,
+      "tickBand": "extent"
+    }
+  }
+}
