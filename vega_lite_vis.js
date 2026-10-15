@@ -27,3 +27,11 @@ var vg_4 = "state_crime_heatmap.vg.json";
 vegaEmbed("#crime_heatmap", vg_4).then(function(result) {
   // Chart 4 rendered successfully
 }).catch(console.error);
+
+// Variable storing the location of Chart 5 JSON file
+var vg_5 = "crime_composition_radial.vg.json";
+
+// Embed the fifth visualization into the HTML div container with id "radial_crime_chart"
+vegaEmbed("#radial_crime_chart", vg_5).then(function(result) {
+  // Chart 5 rendered successfully
+}).catch(console.error);

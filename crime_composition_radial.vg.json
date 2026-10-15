@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "National Crime Profile: Property vs. Violent Offences",
+  "width": 500,
+  "height": 500,
+  "data": {
+    "url": "crime_composition.csv"
+  },
+  "mark": {
+    "type": "arc",
+    "innerRadius": 40,
+    "stroke": "white",
+    "strokeWidth": 1.5
+  },
+  "encoding": {
+    "theta": {
+      "field": "Total_Incidents",
+      "type": "quantitative",
+      "stack": true,
+      "sort": {"field": "Total_Incidents", "order": "descending"}
+    },
+    "radius": {
+      "field": "Total_Incidents",
+      "type": "quantitative",
+      "scale": {
+        "type": "sqrt",
+        "zero": true,
+        "rangeMin": 40
+      },
+      "title": "Total Incidents"
+    },
+    "color": {
+      "field": "Crime_Category",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Property", "Violent (Assault)"],
+        "range": ["#0072B2", "#E69F00"]
+      },
+      "title": "Crime Category"
+    },
+    "tooltip": [
+      {"field": "Crime_Category", "type": "nominal", "title": "Category"},
+      {"field": "Crime_Type", "type": "nominal", "title": "Specific Offence"},
+      {"field": "Total_Incidents", "type": "quantitative", "format": ",", "title": "Total Incidents"}
+    ]
+  }
+}

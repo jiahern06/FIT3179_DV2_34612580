@@ -1,0 +1,13 @@
+Crime_Category,Crime_Type,Total_Incidents
+Violent (Assault),Causing Injury,3693
+Violent (Assault),Gang Robbery (Unarmed),2578
+Violent (Assault),Solo Robbery (Unarmed),1967
+Violent (Assault),Rape,1914
+Violent (Assault),Murder,258
+Violent (Assault),Gang Robbery (Armed),30
+Violent (Assault),Solo Robbery (Armed),13
+Property,Other Theft,15837
+Property,Break-in,11557
+Property,Motorcycle Theft,10588
+Property,Motorcar Theft,3245
+Property,Lorry Theft,764
