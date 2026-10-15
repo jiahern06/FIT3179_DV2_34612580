@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "State-Level Dual Deficit: Internet vs. Basic Amenity Access",
+  "width": 800,
+  "height": 450,
+  "projection": {
+    "type": "equirectangular"
+  },
+  "data": {
+    "url": "malaysia_districts.topojson.json",
+    "format": {"type": "topojson", "feature": "my"} 
+  },
+  "transform": [
+    {
+      "lookup": "properties.name", 
+      "from": {
+        "data": {"url": "district_infrastructure.csv"},
+        "key": "District",
+        "fields": ["Internet_Pct", "Amenity_Pct"]
+      }
+    },
+    {
+      "calculate": "datum.Internet_Pct < 96.0 ? '1' : datum.Internet_Pct < 98.5 ? '2' : '3'",
+      "as": "net_tier"
+    },
+    {
+      "calculate": "datum.Amenity_Pct < 98.0 ? '1' : datum.Amenity_Pct < 99.9 ? '2' : '3'",
+      "as": "amenity_tier"
+    },
+    {
+      "calculate": "datum.net_tier + '-' + datum.amenity_tier",
+      "as": "bivariate_class"
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "color": {
+      "field": "bivariate_class",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "1-1", "1-2", "1-3",
+          "2-1", "2-2", "2-3",
+          "3-1", "3-2", "3-3"
+        ],
+        "range": [
+          "#f2f2f2", "#b9d4ea", "#6baed6",
+          "#f6d6c2", "#c6cbd6", "#7b9fc6",
+          "#e69f00", "#c98246", "#8c510a"
+        ]
+      },
+      "legend": {
+        "title": "Bivariate Category (Internet - Amenities)",
+        "orient": "bottom-right"
+      }
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "State"},
+      {"field": "Internet_Pct", "type": "quantitative", "format": ".1f", "title": "Internet Access (%)"},
+      {"field": "Amenity_Pct", "type": "quantitative", "format": ".1f", "title": "Basic Amenities (%)"}
+    ]
+  }
+}

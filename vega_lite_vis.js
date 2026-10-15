@@ -13,3 +13,9 @@ var vg_2 = "hospital_symbol_map.vg.json";
 vegaEmbed("#symbol_map", vg_2).then(function(result) {
   // Map 2 rendered successfully
 }).catch(console.error);
+
+// Variable storing the location of your third Vega-Lite JSON file
+var vg_3 = "bivariate_state_map.vg.json";
+vegaEmbed("#bivariate_map", vg_3).then(function(result) {
+  // Map 3 rendered successfully
+}).catch(console.error);
