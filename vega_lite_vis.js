@@ -35,3 +35,11 @@ var vg_5 = "crime_composition_radial.vg.json";
 vegaEmbed("#radial_crime_chart", vg_5).then(function(result) {
   // Chart 5 rendered successfully
 }).catch(console.error);
+
+// Variable storing the location of chart 6 JSON file
+var vg_6 = "connected_scatterplot.vg.json";
+
+// Embed the visualization into the HTML div container with id "crime_mix_scatterplot"
+vegaEmbed("#crime_mix_scatterplot", vg_6).then(function(result) {
+  // Chart rendered successfully
+}).catch(console.error);

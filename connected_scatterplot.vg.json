@@ -1,0 +1,127 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Malaysia's Crime Mix, 2016–2023: Violent vs Property Crime",
+    "subtitle": "Each point is a year; the path runs from 2016 to 2023 (reported incidents, national)"
+  },
+  "width": 560,
+  "height": 420,
+  "data": {
+    "url": "crime_connected.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "Property_Crime",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          30000,
+          95000
+        ]
+      },
+      "title": "Property crime (incidents)"
+    },
+    "y": {
+      "field": "Violent_Crime",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          8000,
+          23000
+        ]
+      },
+      "title": "Violent crime (incidents)"
+    },
+    "order": {
+      "field": "Year",
+      "type": "quantitative"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "#9aa5b1",
+        "strokeWidth": 2
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 90
+      },
+      "encoding": {
+        "color": {
+          "field": "Year",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              "#7fb3d5",
+              "#08306b"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "Year",
+            "type": "ordinal"
+          },
+          {
+            "field": "Property_Crime",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Property"
+          },
+          {
+            "field": "Violent_Crime",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Violent"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Year != 2022"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 9,
+        "dy": -8,
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "Year",
+          "type": "ordinal"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Year == 2022"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -9,
+        "dy": 12,
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "Year",
+          "type": "ordinal"
+        }
+      }
+    }
+  ]
+}
