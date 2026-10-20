@@ -1,0 +1,200 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Hospital Beds by Facility Type, 2015–2022",
+    "subtitle": "Band thickness = share of Malaysia's hospital beds (e.g. 2022: MOH 79.2%, Non-MOH 9.6%, Special 11.2%)"
+  },
+  "width": 620,
+  "height": 380,
+  "data": {
+    "url": "health_facility_share.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "Date",
+      "type": "temporal",
+      "timeUnit": "year",
+      "axis": {
+        "title": null,
+        "format": "%Y",
+        "tickCount": 8,
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "Share_Pct",
+      "type": "quantitative",
+      "stack": "center",
+      "axis": null
+    },
+    "color": {
+      "field": "Facility_Type",
+      "type": "nominal",
+      "title": "Facility type",
+      "scale": {
+        "domain": [
+          "MOH Hospitals",
+          "Special Medical Institutions",
+          "Non-MOH Hospitals"
+        ],
+        "range": [
+          "#4c78a8",
+          "#f58518",
+          "#54a24b"
+        ]
+      },
+      "legend": {
+        "orient": "bottom"
+      }
+    },
+    "order": {
+      "field": "Facility_Type",
+      "type": "nominal",
+      "sort": "descending"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone",
+        "opacity": 0.92
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "Facility_Type",
+            "title": "Facility type"
+          },
+          {
+            "field": "Year",
+            "type": "ordinal"
+          },
+          {
+            "field": "Share_Pct",
+            "title": "Share of beds (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "Beds",
+            "title": "Beds",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "stack": "Share_Pct",
+          "groupby": [
+            "Date"
+          ],
+          "offset": "center",
+          "sort": [
+            {
+              "field": "Facility_Type",
+              "order": "descending"
+            }
+          ],
+          "as": [
+            "y0",
+            "y1"
+          ]
+        },
+        {
+          "calculate": "(datum.y0 + datum.y1) / 2",
+          "as": "mid"
+        },
+        {
+          "filter": "datum.Year == 2015"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "y": {
+          "field": "mid",
+          "type": "quantitative",
+          "stack": null
+        },
+        "text": {
+          "field": "Share_Pct",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "color": {
+          "value": "white"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "stack": "Share_Pct",
+          "groupby": [
+            "Date"
+          ],
+          "offset": "center",
+          "sort": [
+            {
+              "field": "Facility_Type",
+              "order": "descending"
+            }
+          ],
+          "as": [
+            "y0",
+            "y1"
+          ]
+        },
+        {
+          "calculate": "(datum.y0 + datum.y1) / 2",
+          "as": "mid"
+        },
+        {
+          "filter": "datum.Year == 2022"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "y": {
+          "field": "mid",
+          "type": "quantitative",
+          "stack": null
+        },
+        "text": {
+          "field": "Share_Pct",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "color": {
+          "value": "white"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datetime(datum.Year, 0, 1)",
+      "as": "Date"
+    }
+  ]
+}

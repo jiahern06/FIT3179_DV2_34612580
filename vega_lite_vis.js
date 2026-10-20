@@ -43,3 +43,11 @@ var vg_6 = "connected_scatterplot.vg.json";
 vegaEmbed("#crime_mix_scatterplot", vg_6).then(function(result) {
   // Chart rendered successfully
 }).catch(console.error);
+
+// Variable storing the location of Chart 7 JSON file
+var vg_7 = "internet_bump_spec.vg.json";
+
+// Embed the seventh visualization into the HTML div container with id "bump_chart"
+vegaEmbed("#bump_chart", vg_7).then(function(result) {
+  // Chart 7 rendered successfully
+}).catch(console.error);
