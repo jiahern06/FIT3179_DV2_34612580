@@ -1,0 +1,214 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Household Internet Access Rank by State, 2019–2025",
+    "subtitle": "Rank 1 = highest share of households with internet access; ties broken alphabetically"
+  },
+  "width": 520,
+  "height": 520,
+  "data": {
+    "url": "internet_rank.csv"
+  },
+  "transform": [
+    {
+      "calculate": "indexof(['Kedah','Pulau Pinang','Terengganu','Sabah'], datum.State) >= 0 ? datum.State : 'Other states'",
+      "as": "Group"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "title": null,
+        "labelFontSize": 12
+      },
+      "scale": {
+        "padding": 60
+      }
+    },
+    "y": {
+      "field": "Rank",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          16.5,
+          0.5
+        ]
+      },
+      "axis": null
+    },
+    "color": {
+      "field": "Group",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": [
+          "Kedah",
+          "Pulau Pinang",
+          "Terengganu",
+          "Sabah",
+          "Other states"
+        ],
+        "range": [
+          "#d62728",
+          "#1f77b4",
+          "#ff7f0e",
+          "#2ca02c",
+          "#c7ccd1"
+        ]
+      }
+    },
+    "opacity": {
+      "condition": {
+        "test": "datum.Group == 'Other states'",
+        "value": 0.9
+      },
+      "value": 1
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "interpolate": "monotone",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "detail": {
+          "field": "State",
+          "type": "nominal"
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "datum.Group == 'Other states'",
+            "value": 1.8
+          },
+          "value": 3.5
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 150
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "State"
+          },
+          {
+            "field": "Year",
+            "type": "ordinal"
+          },
+          {
+            "field": "Internet_Pct",
+            "title": "Internet access (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "Rank"
+          },
+          {
+            "field": "Tied",
+            "title": "Tied on %?"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Year == 2019"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -12,
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {
+          "field": "State"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.Group == 'Other states'",
+            "value": "#555555"
+          },
+          "field": "Group",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Kedah",
+              "Pulau Pinang",
+              "Terengganu",
+              "Sabah",
+              "Other states"
+            ],
+            "range": [
+              "#d62728",
+              "#1f77b4",
+              "#ff7f0e",
+              "#2ca02c",
+              "#c7ccd1"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Year == 2025"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {
+          "field": "State"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.Group == 'Other states'",
+            "value": "#555555"
+          },
+          "field": "Group",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Kedah",
+              "Pulau Pinang",
+              "Terengganu",
+              "Sabah",
+              "Other states"
+            ],
+            "range": [
+              "#d62728",
+              "#1f77b4",
+              "#ff7f0e",
+              "#2ca02c",
+              "#c7ccd1"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}
