@@ -51,3 +51,27 @@ var vg_7 = "internet_bump_spec.vg.json";
 vegaEmbed("#bump_chart", vg_7).then(function(result) {
   // Chart 7 rendered successfully
 }).catch(console.error);
+
+// Variable storing the location of Chart 8 JSON file
+var vg_8 = "healthstream.vg.json";
+
+// Embed the eighth visualization into the HTML div container with id "stream_chart"
+vegaEmbed("#stream_chart", vg_8).then(function(result) {
+  // Chart 8 rendered successfully
+}).catch(console.error);
+
+// Variable storing the location of Chart 9 JSON file
+var vg_9 = "internet_dotplot.vg.json";
+
+// Embed the ninth visualization into the HTML div container with id "dot_chart"
+vegaEmbed("#dot_chart", vg_9).then(function(result) {
+  // Chart 9 rendered successfully
+}).catch(console.error);
+
+// Variable storing the location of Chart 10 JSON file
+var vg_10 = "District_pcp.vg.json";
+
+// Embed the tenth visualization into the HTML div container with id "pcp_chart"
+vegaEmbed("#pcp_chart", vg_10).then(function(result) {
+  // Chart 10 rendered successfully
+}).catch(console.error);

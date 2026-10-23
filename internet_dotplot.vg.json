@@ -1,0 +1,157 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "The Urban–Rural Internet Gap by State, 2025",
+    "subtitle": [
+      "Households with internet access (%); labels show the urban–rural gap in percentage points.",
+      "Sorted by gap. Kuala Lumpur and Putrajaya have no rural area, so they are excluded."
+    ]
+  },
+  "width": 520,
+  "height": 420,
+  "data": {
+    "url": "internet_urban_rural.csv"
+  },
+  "encoding": {
+    "y": {
+      "field": "State",
+      "type": "nominal",
+      "sort": {
+        "field": "Gap_pp",
+        "order": "descending"
+      },
+      "axis": {
+        "title": null,
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 12
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#b8bec6",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "Rural_Pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              78,
+              101.5
+            ]
+          },
+          "axis": {
+            "title": "Households with internet access (%)",
+            "grid": true,
+            "values": [
+              80,
+              84,
+              88,
+              92,
+              96,
+              100
+            ]
+          }
+        },
+        "x2": {
+          "field": "Urban_Pct"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "fold": [
+            "Rural_Pct",
+            "Urban_Pct"
+          ],
+          "as": [
+            "Area",
+            "Pct"
+          ]
+        },
+        {
+          "calculate": "replace(datum.Area, '_Pct', '')",
+          "as": "Area"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 160,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "Pct",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Area",
+          "type": "nominal",
+          "title": "Area",
+          "scale": {
+            "domain": [
+              "Rural",
+              "Urban"
+            ],
+            "range": [
+              "#e8743b",
+              "#2b6cb0"
+            ]
+          },
+          "legend": {
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "State"
+          },
+          {
+            "field": "Area"
+          },
+          {
+            "field": "Pct",
+            "title": "Internet access (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "Gap_pp",
+            "title": "Urban–rural gap (pp)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 11,
+        "color": "#444"
+      },
+      "encoding": {
+        "x": {
+          "field": "Urban_Pct",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "Gap_pp",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

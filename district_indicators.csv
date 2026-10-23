@@ -1,0 +1,111 @@
+State,District,Region,Crime_Per_10k,Internet_Pct,Amenity_Pct,Beds_Per_10k
+Johor,Batu Pahat,Peninsular Malaysia,6.31,98.5,100.0,12.26
+Johor,Kluang,Peninsular Malaysia,8.35,98.5,99.9,11.81
+Johor,Kota Tinggi,Peninsular Malaysia,9.29,98.5,99.95,7.03
+Johor,Kulaijaya,Peninsular Malaysia,8.96,98.5,100.0,2.83
+Johor,Mersing,Peninsular Malaysia,10.75,98.5,94.5,8.85
+Johor,Muar,Peninsular Malaysia,7.07,98.5,100.0,18.31
+Johor,Pontian,Peninsular Malaysia,7.09,98.5,100.0,6.91
+Johor,Segamat,Peninsular Malaysia,8.88,98.5,99.57,15.84
+Kedah,Baling,Peninsular Malaysia,21.74,95.8,98.37,7.94
+Kedah,Bandar Baharu,Peninsular Malaysia,11.41,95.8,100.0,0.0
+Kedah,Kota Setar,Peninsular Malaysia,31.98,95.8,100.0,29.41
+Kedah,Kuala Muda,Peninsular Malaysia,23.14,95.8,99.93,12.77
+Kedah,Kubang Pasu,Peninsular Malaysia,16.74,95.8,99.97,3.64
+Kedah,Kulim,Peninsular Malaysia,20.16,95.8,100.0,9.38
+Kedah,Langkawi,Peninsular Malaysia,25.21,95.8,99.93,16.91
+Kedah,Padang Terap,Peninsular Malaysia,16.24,95.8,100.0,12.03
+Kedah,Pendang,Peninsular Malaysia,20.64,95.8,100.0,0.0
+Kedah,Sik,Peninsular Malaysia,7.87,95.8,100.0,13.56
+Kedah,Yan,Peninsular Malaysia,12.06,95.8,100.0,12.06
+Kelantan,Bachok,Peninsular Malaysia,12.45,93.9,82.3,0.0
+Kelantan,Gua Musang,Peninsular Malaysia,11.35,93.9,96.5,8.65
+Kelantan,Jeli,Peninsular Malaysia,7.66,93.9,93.6,14.26
+Kelantan,Kota Bharu,Peninsular Malaysia,14.98,93.9,89.33,31.91
+Kelantan,Kuala Krai,Peninsular Malaysia,5.79,93.9,90.0,39.59
+Kelantan,Machang,Peninsular Malaysia,11.94,93.9,89.33,7.9
+Kelantan,Pasir Mas,Peninsular Malaysia,7.17,93.9,93.43,5.12
+Kelantan,Pasir Puteh,Peninsular Malaysia,16.63,93.9,89.43,6.48
+Kelantan,Tanah Merah,Peninsular Malaysia,12.36,93.9,90.17,9.5
+Kelantan,Tumpat,Peninsular Malaysia,11.32,93.9,90.27,6.48
+Melaka,Alor Gajah,Peninsular Malaysia,10.29,96.2,100.0,4.21
+Melaka,Jasin,Peninsular Malaysia,10.66,96.2,100.0,6.69
+Melaka,Melaka Tengah,Peninsular Malaysia,14.5,96.2,100.0,20.65
+Negeri Sembilan,Jelebu,Peninsular Malaysia,14.47,95.9,98.37,16.41
+Negeri Sembilan,Jempol,Peninsular Malaysia,11.99,95.9,100.0,8.46
+Negeri Sembilan,Kuala Pilah,Peninsular Malaysia,16.62,95.9,100.0,44.6
+Negeri Sembilan,Port Dickson,Peninsular Malaysia,16.76,95.9,100.0,8.92
+Negeri Sembilan,Rembau,Peninsular Malaysia,12.34,95.9,100.0,15.9
+Negeri Sembilan,Seremban,Peninsular Malaysia,10.02,95.9,100.0,16.4
+Negeri Sembilan,Tampin,Peninsular Malaysia,12.05,95.9,100.0,16.22
+Pahang,Bentong,Peninsular Malaysia,20.22,94.9,99.63,13.02
+Pahang,Bera,Peninsular Malaysia,12.84,94.9,99.57,4.04
+Pahang,Cameron Highlands,Peninsular Malaysia,11.48,94.9,98.17,10.2
+Pahang,Jerantut,Peninsular Malaysia,11.55,94.9,99.13,7.94
+Pahang,Kuantan,Peninsular Malaysia,12.06,94.9,99.97,21.08
+Pahang,Maran,Peninsular Malaysia,10.9,94.9,100.0,6.1
+Pahang,Pekan,Peninsular Malaysia,8.83,94.9,98.9,8.91
+Pahang,Raub,Peninsular Malaysia,9.4,94.9,100.0,9.19
+Pahang,Rompin,Peninsular Malaysia,11.55,94.9,97.7,10.86
+Pahang,Temerloh,Peninsular Malaysia,10.56,94.9,100.0,37.92
+Perak,Hilir Perak,Peninsular Malaysia,25.51,94.4,100.0,38.51
+Perak,Kampar,Peninsular Malaysia,9.37,94.4,99.57,6.92
+Perak,Kerian,Peninsular Malaysia,10.75,94.4,100.0,5.97
+Perak,Kuala Kangsar,Peninsular Malaysia,5.83,94.4,99.87,12.96
+Perak,Perak Tengah,Peninsular Malaysia,11.3,94.4,100.0,5.23
+Pulau Pinang,Barat Daya,Peninsular Malaysia,14.69,99.2,100.0,3.38
+Sabah,Beaufort,East Malaysia,6.83,89.6,96.5,36.14
+Sabah,Beluran,East Malaysia,8.78,89.6,80.9,6.82
+Sabah,Keningau,East Malaysia,6.33,89.6,94.79,14.1
+Sabah,Kota Belud,East Malaysia,3.88,89.6,90.9,15.88
+Sabah,Kota Kinabalu,East Malaysia,25.76,89.6,97.77,43.43
+Sabah,Kota Kinabatangan,East Malaysia,5.07,89.6,89.93,4.92
+Sabah,Kota Marudu,East Malaysia,11.39,89.6,93.45,13.64
+Sabah,Kudat,East Malaysia,4.35,89.6,95.8,20.62
+Sabah,Kunak,East Malaysia,5.46,89.6,96.13,7.08
+Sabah,Lahad Datu,East Malaysia,6.52,89.6,94.59,11.81
+Sabah,Papar,East Malaysia,6.75,89.6,98.47,5.05
+Sabah,Penampang,East Malaysia,16.3,89.6,98.77,0.0
+Sabah,Ranau,East Malaysia,8.57,89.6,80.38,12.75
+Sabah,Sandakan,East Malaysia,13.05,89.6,98.81,9.19
+Sabah,Semporna,East Malaysia,10.22,89.6,85.32,4.23
+Sabah,Sipitang,East Malaysia,8.14,89.6,97.69,24.41
+Sabah,Tawau,East Malaysia,20.48,89.6,99.12,11.66
+Sabah,Tenom,East Malaysia,7.69,89.6,83.63,13.46
+Sabah,Tuaran,East Malaysia,4.38,89.6,92.17,5.98
+Sarawak,Bau,East Malaysia,10.92,89.8,97.37,12.81
+Sarawak,Belaga,East Malaysia,7.96,89.8,80.1,0.0
+Sarawak,Betong,East Malaysia,22.47,89.8,98.6,13.15
+Sarawak,Bintulu,East Malaysia,22.48,89.8,98.3,16.81
+Sarawak,Dalat,East Malaysia,3.77,89.8,95.63,3.77
+Sarawak,Julau,East Malaysia,9.74,89.8,80.13,0.0
+Sarawak,Kanowit,East Malaysia,3.25,89.8,90.5,40.65
+Sarawak,Kapit,East Malaysia,8.01,89.8,82.03,37.02
+Sarawak,Kuching,East Malaysia,13.48,89.8,99.83,22.93
+Sarawak,Lawas,East Malaysia,7.8,89.8,88.33,12.37
+Sarawak,Limbang,East Malaysia,5.7,89.8,95.33,21.93
+Sarawak,Lubok Antu,East Malaysia,7.72,89.8,95.07,0.0
+Sarawak,Lundu,East Malaysia,15.38,89.8,87.87,13.61
+Sarawak,Marudi,East Malaysia,35.11,89.8,80.87,28.72
+Sarawak,Meradong,East Malaysia,10.73,89.8,98.73,0.0
+Sarawak,Miri,East Malaysia,10.99,89.8,98.24,13.89
+Sarawak,Mukah,East Malaysia,8.94,89.8,96.01,18.82
+Sarawak,Saratok,East Malaysia,17.75,89.8,99.43,45.89
+Sarawak,Sarikei,East Malaysia,16.89,89.8,98.9,47.75
+Sarawak,Serian,East Malaysia,15.7,89.8,95.07,9.77
+Sarawak,Sibu,East Malaysia,17.59,89.8,97.24,26.59
+Sarawak,Simunjan,East Malaysia,9.86,89.8,90.17,11.51
+Sarawak,Song,East Malaysia,12.0,89.8,69.3,0.0
+Sarawak,Sri Aman,East Malaysia,18.0,89.8,94.2,15.06
+Sarawak,Tatau,East Malaysia,6.56,89.8,80.5,0.0
+Selangor,Kuala Langat,Peninsular Malaysia,16.53,99.0,100.0,6.23
+Selangor,Kuala Selangor,Peninsular Malaysia,14.53,99.0,100.0,3.96
+Selangor,Sabak Bernam,Peninsular Malaysia,13.9,99.0,100.0,8.62
+Selangor,Sepang,Peninsular Malaysia,18.91,99.0,100.0,33.97
+Terengganu,Besut,Peninsular Malaysia,15.0,93.9,97.93,8.79
+Terengganu,Dungun,Peninsular Malaysia,11.63,93.9,99.8,6.15
+Terengganu,Hulu Terengganu,Peninsular Malaysia,13.97,93.9,99.8,13.14
+Terengganu,Kemaman,Peninsular Malaysia,14.25,93.9,100.0,7.4
+Terengganu,Kuala Terengganu,Peninsular Malaysia,19.98,93.9,99.53,48.8
+Terengganu,Marang,Peninsular Malaysia,8.89,93.9,99.8,0.0
+Terengganu,Setiu,Peninsular Malaysia,8.29,93.9,99.07,12.36
