@@ -227,7 +227,6 @@ h1 {
 .vega-embed > svg,
 .vega-embed > canvas {
     display: block;
-    width: 100% !important;
     max-width: 100%;
     height: auto;
 }

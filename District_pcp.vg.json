@@ -43,14 +43,14 @@
         ]
     },
     "spec": {
-        "width": 150,
-        "height": 150,
+        "width": 120,
+        "height": 120,
         "params": [
             {
                 "name": "brush",
                 "select": {
                     "type": "interval",
-                    "resolve": "cross",
+                    "resolve": "union",
                     "mark": {
                         "fill": "#333",
                         "fillOpacity": 0.1,
