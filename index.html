@@ -6,101 +6,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malaysia Community Wellbeing Dashboard</title>
 
-    <!-- Import Vega, Vega-Lite, and Vega-Embed JavaScript CDN Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-    <!-- Import Your External JavaScript File -->
     <script src="vega_lite_vis.js" defer></script>
-
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <main class="page-container">
+        <header class="hero-header">
+            <p class="eyebrow">MALAYSIA COMMUNITY WELLBEING</p>
+            <h1>Bridging the Divide</h1>
+            <p class="subtitle">Exploring safety, digital inclusion and healthcare infrastructure across Malaysia.</p>
+            <p class="hero-summary">
+                This dashboard brings together public data to reveal how wellbeing differs across states and districts,
+                and where communities may benefit most from better access to essential services.
+            </p>
+            <div class="hero-meta" aria-label="Visualisation overview">
+                <span><strong>Who</strong> Malaysians and community decision-makers</span>
+                <span><strong>What</strong> Safety, access and healthcare indicators</span>
+                <span><strong>Why</strong> To make regional inequalities easier to see</span>
+            </div>
+        </header>
 
-    <header>
-        <h1>Public Safety & Crime Rates in Malaysia (2023)</h1>
-    </header>
+        <section class="section-block" aria-labelledby="safety-title">
+            <div class="section-heading">
+                <p class="eyebrow">01 / PUBLIC SAFETY</p>
+                <h2 id="safety-title">Community peace and safety</h2>
+                <p>Crime patterns vary considerably across Malaysia. These views show where incidents are concentrated
+                    and how state-level safety has changed over time.</p>
+            </div>
+            <div class="chart-grid">
+                <article class="vis-card">
+                    <h3>District crime rates</h3>
+                    <p class="chart-description">Crime incidents per 10,000 residents in 2023.</p>
+                    <p class="chart-annotation"><strong>Notice:</strong> Darker districts indicate higher crime rates relative to their population.</p>
+                    <p class="chart-finding"><strong>Finding:</strong> Crime is not evenly distributed: the map shows a clear contrast between higher-rate urban centres and lower-rate districts.</p>
+                    <div class="vis-container" id="crime_map"></div>
+                </article>
+                <article class="vis-card">
+                    <h3>State crime trends</h3>
+                    <p class="chart-description">Crime rates across states from 2018 to 2023.</p>
+                    <p class="chart-annotation"><strong>Notice:</strong> Compare colour intensity across years to see which states remain consistently higher or lower.</p>
+                    <p class="chart-finding"><strong>Finding:</strong> Kuala Lumpur starts as the strongest high-rate outlier, but its rate falls substantially by 2023; the national pattern is therefore changing rather than static.</p>
+                    <div class="vis-container" id="crime_heatmap"></div>
+                </article>
+            </div>
+            <article class="vis-card vis-card-wide">
+                <h3>Crime composition profiling</h3>
+                <p class="chart-description">The offence categories contributing to Malaysia's overall crime profile.</p>
+                <p class="chart-annotation"><strong>Notice:</strong> The larger radial segments show which offence groups contribute most to the national total.</p>
+                <p class="chart-finding"><strong>Finding:</strong> Property offences dominate the profile, with other theft, break-in and motorcycle theft forming the largest visible contributors.</p>
+                <div class="vis-container" id="radial_crime_chart"></div>
+            </article>
+            <p class="story-note"><strong>Read the story:</strong> Start with the map to locate local differences, then
+                use the heatmap to see whether those differences persist over time. The radial view explains which
+                offence groups are driving the national picture.</p>
+        </section>
 
-    <!-- Container DIV for Map 1 -->
-    <div id="crime_map"></div>
+        <section class="section-block" aria-labelledby="amenities-title">
+            <div class="section-heading">
+                <p class="eyebrow">02 / BASIC AMENITIES</p>
+                <h2 id="amenities-title">Digital inclusion and essential amenities</h2>
+                <p>Internet access and basic amenities are closely connected to opportunity. Compare regional gaps and
+                    follow how states have moved through the rankings.</p>
+            </div>
+            <div class="chart-grid">
+                <article class="vis-card">
+                    <h3>Internet access and amenities</h3>
+                    <p class="chart-description">A bivariate view of digital access and amenities deficits.</p>
+                    <p class="chart-annotation"><strong>Notice:</strong> Use the colour categories to find states facing both lower internet access and weaker basic amenities.</p>
+                    <p class="chart-finding"><strong>Finding:</strong> The combined map shows that digital access and basic amenities do not move together everywhere, revealing places where one need may be hidden by a stronger score on the other.</p>
+                    <div class="vis-container" id="bivariate_map"></div>
+                </article>
+                <article class="vis-card">
+                    <h3>Progress path</h3>
+                    <p class="chart-description">The relationship between violent and property crime over time.</p>
+                    <p class="chart-annotation"><strong>Follow the path:</strong> Each labelled point is a year, showing how the national crime mix changes over time.</p>
+                    <p class="chart-finding"><strong>Finding:</strong> Property crime remains much larger than violent crime throughout the period, while both measures shift noticeably across the years.</p>
+                    <div class="vis-container" id="crime_mix_scatterplot"></div>
+                </article>
+                <article class="vis-card">
+                    <h3>Urban–rural digital gap</h3>
+                    <p class="chart-description">The difference in household internet access by state in 2025.</p>
+                    <p class="chart-annotation"><strong>Compare the dots:</strong> Longer connectors indicate a larger difference between urban and rural access.</p>
+                    <p class="chart-finding"><strong>Finding:</strong> The largest gaps occur in states where urban access is near the national ceiling but rural access remains visibly lower, making rural connectivity the main pressure point.</p>
+                    <div class="vis-container" id="dot_chart"></div>
+                </article>
+                <article class="vis-card">
+                    <h3>State ranking shifts</h3>
+                    <p class="chart-description">Changes in household internet access rankings from 2019 to 2025.</p>
+                    <p class="chart-annotation"><strong>Follow the lines:</strong> Moving upward means a state has improved its relative position in the ranking.</p>
+                    <p class="chart-finding"><strong>Finding:</strong> Rankings are not fixed: several states exchange positions over time, while other states remain near the top or bottom of the comparison.</p>
+                    <div class="vis-container" id="bump_chart"></div>
+                </article>
+            </div>
+            <p class="story-note"><strong>Read the story:</strong> The bivariate map identifies places facing two
+                access challenges at once. The ranking and gap views then show how digital inclusion differs between
+                states and between urban and rural households.</p>
+        </section>
 
-    <!-- Header for Map 2 -->
-    <header>
-        <h2>Healthcare Infrastructure & Hospital Beds (2022)</h2>
-    </header>
-    
-    <!-- Container DIV for Map 2 -->
-    <div id="symbol_map"></div>
+        <section class="section-block" aria-labelledby="health-title">
+            <div class="section-heading">
+                <p class="eyebrow">03 / HEALTHCARE INFRASTRUCTURE</p>
+                <h2 id="health-title">Healthcare capacity and holistic wellbeing</h2>
+                <p>Healthcare resources are not distributed evenly. These charts connect hospital capacity with a
+                    broader district-level view of community wellbeing.</p>
+            </div>
+            <div class="chart-grid">
+                <article class="vis-card">
+                    <h3>Hospital beds by state</h3>
+                    <p class="chart-description">Hospital bed capacity and beds per 1,000 residents in 2022.</p>
+                    <p class="chart-annotation"><strong>Read both channels:</strong> Circle size shows total capacity, while colour shows beds available per 1,000 residents.</p>
+                    <p class="chart-finding"><strong>Finding:</strong> Total capacity follows population size, but the colour scale shows that the largest hospital systems are not automatically the best supplied per resident.</p>
+                    <div class="vis-container" id="symbol_map"></div>
+                </article>
+                <article class="vis-card">
+                    <h3>Facility shifts over time</h3>
+                    <p class="chart-description">How hospital bed capacity has changed by facility type.</p>
+                    <p class="chart-annotation"><strong>Read the bands:</strong> Changes in band thickness show how each facility type's share of capacity shifts over time.</p>
+                    <p class="chart-finding"><strong>Finding:</strong> MOH hospitals remain the largest share of beds and account for 79.2% in 2022, while non-MOH and special institutions make up the remainder.</p>
+                    <div class="vis-container" id="stream_chart"></div>
+                </article>
+            </div>
+            <p class="story-note"><strong>Read the story:</strong> Hospital capacity is shown spatially first, then
+                as a change in facility mix over time. This helps distinguish where capacity is located from how the
+                national system is changing.</p>
+        </section>
 
-    <!-- Container DIV for Map 3 -->
-    <div id="bivariate_map"></div>
+        <section class="section-block synthesis-block" aria-labelledby="synthesis-title">
+            <div class="section-heading">
+                <p class="eyebrow">04 / HOLISTIC SYNTHESIS</p>
+                <h2 id="synthesis-title">How do districts compare overall?</h2>
+                <p>The final view brings the indicators together so readers can compare districts without needing
+                    specialist statistical knowledge.</p>
+            </div>
+            <article class="vis-card vis-card-wide">
+                <h3>District profiles</h3>
+                <p class="chart-description">Compare crime, internet, amenities and health indicators across 110 districts.</p>
+                <p class="chart-annotation"><strong>Explore a profile:</strong> Brush any axis to highlight districts with similar combinations of safety, access and healthcare indicators.</p>
+                <p class="chart-finding"><strong>Finding:</strong> District wellbeing is multi-dimensional: a district can perform strongly on internet access while still differing on crime, amenities or hospital-bed provision.</p>
+                <div class="vis-container" id="pcp_chart"></div>
+            </article>
+            <p class="story-note"><strong>What to take away:</strong> Brush across any axis to highlight districts
+                with similar profiles. Use the tooltip to identify a district, then return to the earlier maps to
+                understand its geographic context.</p>
+        </section>
 
-    <!-- Header for Chart 4 -->
-    <header>
-        <h2>Tracking State Safety Trajectories Year-Over-Year</h2>
-        <p>A closer look at how crime incidences have shifted across regions from 2018 to 2023.</p>
-    </header>
-    
-    <!-- Container DIV for Chart 4 -->
-    <div id="crime_heatmap"></div>
-
-    <!-- Header for Chart 5 -->
-    <header>
-        <h2>Crime Composition Profiling</h2>
-        <p>A breakdown of specific offences driving the national crime rate.</p>
-    </header>
-
-    <!-- Container DIV for Chart 5 -->
-    <div id="radial_crime_chart"></div>
-
-    <!-- Header for chart 6 -->
-    <header>
-        <h2>Malaysia's Crime Mix: Violent vs. Property Crime (2016–2023)</h2>
-        <p>A continuous longitudinal path tracking national shifts in reported property and violent crime incidents.</p>
-    </header>
-    
-    <!-- Container DIV for chart 6 -->
-    <div id="crime_mix_scatterplot"></div>
-
-    <!-- Header for Chart 7 -->
-    <header>
-        <h2>State Ranking Shifts in Internet Access</h2>
-        <p>How Malaysian states have climbed or fallen in household internet access rankings from 2019 to 2025.</p>
-    </header>
-    
-    <!-- Container DIV for Chart 7 -->
-    <div id="bump_chart"></div>
-
-    <!-- Header for Chart 8 -->
-    <header>
-        <h2>Shifts in Hospital Bed Capacity by Facility Type</h2>
-        <p>How the share of Malaysia's hospital beds held by MOH, non-MOH and special medical institutions changed from 2015
-            to 2022.</p>
-    </header>
-    
-    <!-- Container DIV for Chart 8 -->
-    <div id="stream_chart"></div>
-
-    <!-- Header for Chart 9 -->
-    <header>
-        <h2>The Urban–Rural Internet Gap</h2>
-        <p>How much less likely rural households are to have internet access than urban ones, by state, in 2025.</p>
-    </header>
-    
-    <!-- Container DIV for Chart 9 -->
-    <div id="dot_chart"></div>
-
-    <!-- Header for Chart 10 -->
-    <header>
-        <h2>District Profiles: Crime, Internet, Amenities and Health</h2>
-        <p>Brush any axis to filter 110 districts across four infrastructure and wellbeing indicators for 2022.</p>
-    </header>
-    
-    <!-- Container DIV for Chart 10 -->
-    <div id="pcp_chart"></div>
+        <footer>
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <strong>Domain and purpose</strong>
+                    <p>Community wellbeing in Malaysia. The visualisation helps a general audience identify
+                        geographic inequalities in safety, digital access and healthcare.</p>
+                </div>
+                <div class="metadata-item">
+                    <strong>Sources and date</strong>
+                    <p>OpenDOSM, Ministry of Health Malaysia and Royal Malaysia Police. Data shown covers the latest
+                        available years in the supplied datasets; accessed October 2026.</p>
+                    <p class="source-links"><a href="https://open.dosm.gov.my/" target="_blank" rel="noreferrer">OpenDOSM</a>
+                        · <a href="https://www.moh.gov.my/" target="_blank" rel="noreferrer">MOH Malaysia</a>
+                        · <a href="https://www.rmp.gov.my/" target="_blank" rel="noreferrer">Royal Malaysia Police</a></p>
+                </div>
+                <div class="metadata-item">
+                    <strong>Submission details</strong>
+                    <p>Author: Wong Jia Hern · FIT3179 Data Visualisation 2 · Vega-Lite/Vega implementation.</p>
+                    <p>AI tools like Gemini were used for layout refinement and code assistance; all data and visual encodings
+                        were reviewed personally for this submission.</p>
+                    <p><strong>Date published:</strong> 27 October 2026</p>
+                </div>
+            </div>
+            <p class="footer-credit">Malaysia Community Wellbeing Dashboard · FIT3179 Data Visualisation</p>
+        </footer>
+    </main>
 </body>
-
 
 </html>

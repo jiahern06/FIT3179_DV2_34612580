@@ -43,44 +43,81 @@ body {
    2. PAGE LAYOUT & CONTAINER STRUCTURE (HD Rubric: 3%)
    ========================================================================== */
 .page-container {
-    max-width: 1200px;
-    /* Aligns all elements to consistent sight lines */
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 32px 24px;
+    padding: 48px 32px 40px;
 }
 
-header {
-    margin-bottom: 40px;
+.hero-header {
+    margin-bottom: 64px;
+    padding: 48px 0 40px;
     text-align: center;
-    padding-bottom: 24px;
     border-bottom: 1px solid var(--border-color);
 }
 
 h1 {
-    font-size: 2.25rem;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
     font-weight: 700;
     color: var(--text-main);
     letter-spacing: -0.02em;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-muted);
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Section Grouping & White Space */
-.section-block {
-    margin-bottom: 48px;
+.eyebrow {
+    color: var(--primary-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    margin-bottom: 10px;
 }
 
-.section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 16px;
+.hero-summary {
+    max-width: 720px;
+    margin: 24px auto 0;
+    color: var(--text-muted);
+}
+
+.hero-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    max-width: 900px;
+    margin: 28px auto 0;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.hero-meta strong {
     color: var(--text-main);
+}
+
+/* Section Grouping & White Space */
+.section-block {
+    margin-bottom: 72px;
+}
+
+.section-heading {
+    margin-bottom: 24px;
+    max-width: 760px;
+}
+
+.section-heading h2 {
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.section-heading > p:last-child {
+    color: var(--text-muted);
 }
 
 .narrative-text {
@@ -98,10 +135,73 @@ h1 {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
+    min-width: 0;
     padding: 24px;
-    margin-bottom: 24px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.2s ease;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.vis-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.chart-description {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 16px;
+}
+
+.chart-annotation {
+    margin: -4px 0 16px;
+    padding: 8px 10px;
+    border-left: 2px solid var(--primary-accent);
+    background: #f0f9ff;
+    color: var(--text-main);
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.chart-annotation strong {
+    color: var(--primary-accent);
+}
+
+.chart-finding {
+    margin: -4px 0 16px;
+    color: var(--text-main);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.chart-finding strong {
+    color: var(--primary-accent);
+}
+
+.vis-card-wide {
+    width: 100%;
+}
+
+.story-note {
+    max-width: 900px;
+    margin: 20px 0 0;
+    padding-left: 16px;
+    border-left: 3px solid var(--primary-accent);
+    color: var(--text-muted);
+}
+
+.story-note strong {
+    color: var(--text-main);
+}
+
+.synthesis-block {
+    margin-bottom: 80px;
 }
 
 .vis-card:hover {
@@ -113,15 +213,27 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-x: auto;
-    /* Prevents layout breakages on small screens */
+    overflow: hidden;
 }
 
 /* Fix for Vega-Lite actions button positioning */
 .vega-embed {
     width: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.vega-embed > svg,
+.vega-embed > canvas {
+    display: block;
+    width: 100% !important;
+    max-width: 100%;
+    height: auto;
+}
+
+.vega-embed summary {
+    color: var(--text-muted);
 }
 
 /* ==========================================================================
@@ -135,6 +247,31 @@ footer {
     color: var(--text-muted);
 }
 
+@media (max-width: 760px) {
+    .page-container {
+        padding: 24px 16px;
+    }
+
+    .hero-header {
+        margin-bottom: 44px;
+        padding: 32px 0;
+    }
+
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-meta {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .vis-card {
+        padding: 16px;
+    }
+}
+
 .metadata-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -143,4 +280,20 @@ footer {
 
 .metadata-item strong {
     color: var(--text-main);
+}
+
+.metadata-item p {
+    margin-top: 6px;
+}
+
+.source-links {
+    font-size: 0.8rem;
+}
+
+a {
+    color: var(--primary-accent);
+}
+
+.footer-credit {
+    margin-top: 28px;
 }
